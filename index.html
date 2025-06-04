@@ -17,7 +17,6 @@
             min-height: 100vh;
         }
 
-        /* Login Page Styles */
         .login-container {
             min-height: 100vh;
             display: flex;
@@ -130,7 +129,6 @@
             color: #1e40af;
         }
 
-        /* Main App Styles */
         .app-container {
             display: flex;
             min-height: 100vh;
@@ -249,7 +247,6 @@
             color: #dc2626;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 280px;
             background: white;
@@ -336,7 +333,6 @@
             color: #166534;
         }
 
-        /* Main Content */
         .main-content {
             flex: 1;
             margin-left: 280px;
@@ -370,7 +366,6 @@
             padding: 24px;
         }
 
-        /* Stats Cards */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -409,7 +404,6 @@
         .stat-red .stat-number { color: #dc2626; }
         .stat-orange .stat-number { color: #ea580c; }
 
-        /* Camera Cards */
         .cameras-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -573,7 +567,6 @@
             cursor: not-allowed;
         }
 
-        /* Modal Styles */
         .modal {
             position: fixed;
             inset: 0;
@@ -672,6 +665,21 @@
             margin-bottom: 8px;
         }
 
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
         .form-textarea {
             width: 100%;
             padding: 12px;
@@ -730,7 +738,6 @@
             background: #e2e8f0;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
                 transform: translateX(-100%);
@@ -777,9 +784,7 @@
         <div class="login-container">
             <div class="login-card">
                 <div class="login-header">
-                    <div class="login-logo">
-                        📷
-                    </div>
+                    <div class="login-logo">📷</div>
                     <h1 class="login-title">CCTV Management</h1>
                     <p class="login-subtitle">Sign in to your account</p>
                 </div>
@@ -810,12 +815,8 @@
         <!-- Top Header -->
         <div class="top-header">
             <div class="header-left">
-                <button class="menu-toggle" onclick="toggleSidebar()">
-                    ☰
-                </button>
-                <div class="logo">
-                    📷
-                </div>
+                <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+                <div class="logo">📷</div>
                 <div class="header-title">
                     <h1 id="app-title">CCTV Management</h1>
                 </div>
@@ -852,19 +853,6 @@
                                 Overdue Checks
                                 <span class="nav-badge urgent" id="nav-overdue-count">3</span>
                             </button>
-                            <button class="nav-item" onclick="navigateTo('completed')">
-                                <span class="nav-icon">✅</span>
-                                Today's Checks
-                                <span class="nav-badge success" id="nav-completed-count">0</span>
-                            </button>
-                        </div>
-
-                        <div class="nav-section">
-                            <div class="nav-section-title">Reports</div>
-                            <button class="nav-item" onclick="navigateTo('history')">
-                                <span class="nav-icon">📜</span>
-                                Check History
-                            </button>
                         </div>
                     </div>
 
@@ -876,10 +864,6 @@
                                 <span class="nav-icon">📊</span>
                                 Overview
                             </button>
-                            <button class="nav-item" onclick="navigateTo('analytics')">
-                                <span class="nav-icon">📈</span>
-                                Analytics
-                            </button>
                         </div>
 
                         <div class="nav-section">
@@ -889,14 +873,6 @@
                                 All Cameras
                                 <span class="nav-badge" id="nav-total-cameras">5</span>
                             </button>
-                            <button class="nav-item" onclick="navigateTo('locations')">
-                                <span class="nav-icon">📍</span>
-                                Locations
-                            </button>
-                            <button class="nav-item" onclick="navigateTo('freshservice-sync')">
-                                <span class="nav-icon">🔄</span>
-                                Freshservice Sync
-                            </button>
                         </div>
 
                         <div class="nav-section">
@@ -904,19 +880,11 @@
                             <button class="nav-item" onclick="navigateTo('users')">
                                 <span class="nav-icon">👥</span>
                                 All Users
-                                <span class="nav-badge" id="nav-total-users">3</span>
+                                <span class="nav-badge" id="nav-total-users">5</span>
                             </button>
                             <button class="nav-item" onclick="navigateTo('permissions')">
                                 <span class="nav-icon">🛡️</span>
                                 Permissions
-                            </button>
-                        </div>
-
-                        <div class="nav-section">
-                            <div class="nav-section-title">System</div>
-                            <button class="nav-item" onclick="navigateTo('settings')">
-                                <span class="nav-icon">⚙️</span>
-                                Settings
                             </button>
                         </div>
                     </div>
@@ -948,15 +916,9 @@
                                 <div class="stat-number" id="stat-overdue">3</div>
                                 <div class="stat-label">Overdue Checks</div>
                             </div>
-                            <div class="stat-card stat-orange">
-                                <div class="stat-number" id="stat-issues">2</div>
-                                <div class="stat-label">Open Issues</div>
-                            </div>
                         </div>
                         
-                        <div class="cameras-grid" id="cameras-grid">
-                            <!-- Populated by JavaScript -->
-                        </div>
+                        <div class="cameras-grid" id="cameras-grid"></div>
                     </div>
                 </div>
 
@@ -975,26 +937,20 @@
                                 <div class="stat-label">Total Cameras</div>
                             </div>
                             <div class="stat-card stat-green">
-                                <div class="stat-number" id="admin-stat-active">3</div>
+                                <div class="stat-number" id="admin-stat-active">5</div>
                                 <div class="stat-label">Active Users</div>
                             </div>
-                            <div class="stat-card stat-orange">
-                                <div class="stat-number" id="admin-stat-pending">3</div>
-                                <div class="stat-label">Pending Checks</div>
-                            </div>
                             <div class="stat-card stat-red">
-                                <div class="stat-number" id="admin-stat-issues">2</div>
-                                <div class="stat-label">Open Issues</div>
+                                <div class="stat-number" id="admin-stat-overdue">3</div>
+                                <div class="stat-label">Overdue Checks</div>
                             </div>
                         </div>
                         
-                        <div class="cameras-grid" id="admin-cameras-grid">
-                            <!-- Populated by JavaScript -->
-                        </div>
+                        <div class="cameras-grid" id="admin-cameras-grid"></div>
                     </div>
                 </div>
 
-                <!-- Other Pages -->
+                <!-- My Cameras Page -->
                 <div id="my-cameras-page" class="hidden">
                     <div class="content-header">
                         <div>
@@ -1003,12 +959,11 @@
                         </div>
                     </div>
                     <div class="content-body">
-                        <div id="my-cameras-grid" class="cameras-grid">
-                            <!-- Populated by JavaScript -->
-                        </div>
+                        <div id="my-cameras-grid" class="cameras-grid"></div>
                     </div>
                 </div>
 
+                <!-- Overdue Page -->
                 <div id="overdue-page" class="hidden">
                     <div class="content-header">
                         <div>
@@ -1017,26 +972,11 @@
                         </div>
                     </div>
                     <div class="content-body">
-                        <div id="overdue-grid" class="cameras-grid">
-                            <!-- Populated by JavaScript -->
-                        </div>
+                        <div id="overdue-grid" class="cameras-grid"></div>
                     </div>
                 </div>
 
-                <div id="completed-page" class="hidden">
-                    <div class="content-header">
-                        <div>
-                            <h1 class="content-title">Today's Checks</h1>
-                            <p class="content-subtitle">Cameras checked today</p>
-                        </div>
-                    </div>
-                    <div class="content-body">
-                        <div id="completed-grid" class="cameras-grid">
-                            <!-- Populated by JavaScript -->
-                        </div>
-                    </div>
-                </div>
-
+                <!-- All Cameras Page -->
                 <div id="all-cameras-page" class="hidden">
                     <div class="content-header">
                         <div>
@@ -1045,8 +985,114 @@
                         </div>
                     </div>
                     <div class="content-body">
-                        <div id="all-cameras-grid" class="cameras-grid">
-                            <!-- Populated by JavaScript -->
+                        <div id="all-cameras-grid" class="cameras-grid"></div>
+                    </div>
+                </div>
+
+                <!-- Users Page -->
+                <div id="users-page" class="hidden">
+                    <div class="content-header">
+                        <div>
+                            <h1 class="content-title">User Management</h1>
+                            <p class="content-subtitle">Manage users and permissions</p>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <h3 style="margin-bottom: 20px;">System Users</h3>
+                            <div id="users-list">
+                                <div style="display: grid; gap: 12px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                        <div>
+                                            <div style="font-weight: 600;">John Smith</div>
+                                            <div style="font-size: 12px; color: #64748b;">john@securetech.com - Contractor</div>
+                                        </div>
+                                        <span style="padding: 4px 8px; background: #dcfce7; color: #166534; border-radius: 12px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                        <div>
+                                            <div style="font-weight: 600;">Sarah Wilson</div>
+                                            <div style="font-size: 12px; color: #64748b;">admin@site.com - Admin</div>
+                                        </div>
+                                        <span style="padding: 4px 8px; background: #dcfce7; color: #166534; border-radius: 12px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                        <div>
+                                            <div style="font-weight: 600;">Mike Johnson</div>
+                                            <div style="font-size: 12px; color: #64748b;">mike@contractors.com - Contractor</div>
+                                        </div>
+                                        <span style="padding: 4px 8px; background: #dcfce7; color: #166534; border-radius: 12px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                        <div>
+                                            <div style="font-weight: 600;">Emma Davis</div>
+                                            <div style="font-size: 12px; color: #64748b;">emma@sitemanage.com - Manager</div>
+                                        </div>
+                                        <span style="padding: 4px 8px; background: #dcfce7; color: #166534; border-radius: 12px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                        <div>
+                                            <div style="font-weight: 600;">Tom Wilson</div>
+                                            <div style="font-size: 12px; color: #64748b;">tom@newcompany.com - Contractor</div>
+                                        </div>
+                                        <span style="padding: 4px 8px; background: #fef3c7; color: #92400e; border-radius: 12px; font-size: 11px; font-weight: 600;">PENDING</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Permissions Page -->
+                <div id="permissions-page" class="hidden">
+                    <div class="content-header">
+                        <div>
+                            <h1 class="content-title">Permissions Management</h1>
+                            <p class="content-subtitle">Configure user roles and permissions</p>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <h3 style="margin-bottom: 20px;">Role Permissions Matrix</h3>
+                            
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="background: #f8fafc;">
+                                            <th style="padding: 12px 16px; text-align: left; font-weight: 600; color: #374151;">Permission</th>
+                                            <th style="padding: 12px 16px; text-align: center; font-weight: 600; color: #374151;">Admin</th>
+                                            <th style="padding: 12px 16px; text-align: center; font-weight: 600; color: #374151;">Manager</th>
+                                            <th style="padding: 12px 16px; text-align: center; font-weight: 600; color: #374151;">Contractor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                                            <td style="padding: 12px 16px; font-size: 14px;">View all cameras</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #dc2626; font-size: 18px;">❌</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                                            <td style="padding: 12px 16px; font-size: 14px;">Perform camera checks</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #f59e0b; font-size: 18px;">⚠️</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #f1f5f9;">
+                                            <td style="padding: 12px 16px; font-size: 14px;">Manage users</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #dc2626; font-size: 18px;">❌</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #dc2626; font-size: 18px;">❌</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 12px 16px; font-size: 14px;">System settings</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #059669; font-size: 18px;">✅</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #dc2626; font-size: 18px;">❌</td>
+                                            <td style="padding: 12px 16px; text-align: center; color: #dc2626; font-size: 18px;">❌</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1121,98 +1167,75 @@
     </div>
 
     <script>
-        // Global state
         let currentUser = null;
         let currentPage = 'dashboard';
         let selectedCamera = null;
-        let sidebarOpen = true;
 
-        // Sample data
-        let cameras = [
+        const cameras = [
             {
                 id: 'CAM001',
                 name: 'Front Entrance Camera',
                 location: 'Main Entrance - Building A',
-                asset_tag: 'FS-CAM-001',
-                serial_number: 'SN123456',
                 lastChecked: '2025-05-28',
                 inspectionNotes: 'Previous check: lens cleaned, all functions normal',
                 assignedTo: 'John Smith',
                 priority: 'high',
-                status: 'overdue',
-                freshservice_id: '12345'
+                status: 'overdue'
             },
             {
                 id: 'CAM002',
                 name: 'Parking Lot Camera A',
                 location: 'North Parking Area',
-                asset_tag: 'FS-CAM-002',
-                serial_number: 'SN123457',
                 lastChecked: '2025-05-15',
                 inspectionNotes: 'Previous check: slight dirt on lens',
                 assignedTo: 'John Smith',
                 priority: 'medium',
-                status: 'overdue',
-                freshservice_id: '12346'
+                status: 'overdue'
             },
             {
                 id: 'CAM003',
                 name: 'Loading Bay Camera',
                 location: 'Service Entrance - Dock 3',
-                asset_tag: 'FS-CAM-003',
-                serial_number: 'SN123458',
                 lastChecked: '2025-06-02',
                 inspectionNotes: 'Previous check: clear view, good condition',
                 assignedTo: 'John Smith',
                 priority: 'low',
-                status: 'recent',
-                freshservice_id: '12347'
+                status: 'recent'
             },
             {
                 id: 'CAM004',
                 name: 'Emergency Exit Camera',
                 location: 'East Wing - Fire Exit 2',
-                asset_tag: 'FS-CAM-004',
-                serial_number: 'SN123459',
                 lastChecked: '2025-05-20',
                 inspectionNotes: '',
                 assignedTo: 'Mike Johnson',
                 priority: 'high',
-                status: 'overdue',
-                freshservice_id: '12348'
+                status: 'overdue'
             },
             {
                 id: 'CAM005',
                 name: 'Reception Area Camera',
                 location: 'Main Lobby - Visitor Desk',
-                asset_tag: 'FS-CAM-005',
-                serial_number: 'SN123460',
                 lastChecked: '2025-06-01',
                 inspectionNotes: 'Previous check: functioning normally',
                 assignedTo: 'Sarah Wilson',
                 priority: 'medium',
-                status: 'due-soon',
-                freshservice_id: '12349'
+                status: 'due-soon'
             }
         ];
 
-        // Authentication functions
         function loginAs(role) {
             if (role === 'admin') {
                 currentUser = {
-                    id: 'USER002',
                     name: 'Sarah Wilson',
                     email: 'admin@site.com',
-                    role: 'admin',
-                    company: 'Site Management'
+                    role: 'admin'
                 };
             } else {
                 currentUser = {
-                    id: 'USER001',
                     name: 'John Smith',
                     email: 'john@securetech.com',
-                    role: 'contractor',
-                    company: 'SecureTech Ltd'
+                    role: 'contractor'
                 };
             }
             
@@ -1227,12 +1250,6 @@
             updateNavigation();
             updateStats();
             renderCameras();
-            
-            if (currentUser.role === 'admin') {
-                navigateTo('admin-dashboard');
-            } else {
-                navigateTo('dashboard');
-            }
         }
 
         function logout() {
@@ -1255,10 +1272,12 @@
                 document.getElementById('contractor-nav').classList.add('hidden');
                 document.getElementById('admin-nav').classList.remove('hidden');
                 document.getElementById('app-title').textContent = 'CCTV Admin Portal';
+                navigateTo('admin-dashboard');
             } else {
                 document.getElementById('admin-nav').classList.add('hidden');
                 document.getElementById('contractor-nav').classList.remove('hidden');
                 document.getElementById('app-title').textContent = 'CCTV Contractor Portal';
+                navigateTo('dashboard');
             }
         }
 
@@ -1273,37 +1292,31 @@
                 document.getElementById('stat-assigned').textContent = assigned;
                 document.getElementById('stat-checked').textContent = checkedToday;
                 document.getElementById('stat-overdue').textContent = overdue;
-                document.getElementById('stat-issues').textContent = 2;
                 
                 document.getElementById('nav-assigned-count').textContent = assigned;
                 document.getElementById('nav-overdue-count').textContent = overdue;
-                document.getElementById('nav-completed-count').textContent = checkedToday;
             } else {
                 const totalCameras = cameras.length;
                 const checkedToday = cameras.filter(c => c.lastChecked === today).length;
                 const overdue = cameras.filter(c => c.status === 'overdue').length;
                 
                 document.getElementById('admin-stat-cameras').textContent = totalCameras;
-                document.getElementById('admin-stat-active').textContent = 3;
-                document.getElementById('admin-stat-pending').textContent = overdue;
-                document.getElementById('admin-stat-issues').textContent = 2;
+                document.getElementById('admin-stat-active').textContent = 5;
+                document.getElementById('admin-stat-overdue').textContent = overdue;
                 
                 document.getElementById('nav-total-cameras').textContent = totalCameras;
-                document.getElementById('nav-total-users').textContent = 3;
+                document.getElementById('nav-total-users').textContent = 5;
             }
         }
 
-        // Navigation
         function navigateTo(page) {
-            // Hide all pages
             document.querySelectorAll('[id$="-page"]').forEach(p => p.classList.add('hidden'));
-            
-            // Show selected page
             document.getElementById(page + '-page').classList.remove('hidden');
             
-            // Update nav active state
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             currentPage = page;
             renderCameras();
@@ -1321,7 +1334,6 @@
             }
         }
 
-        // Camera management
         function performCheck(cameraId) {
             selectedCamera = cameras.find(c => c.id === cameraId);
             if (!selectedCamera) return;
@@ -1329,7 +1341,6 @@
             document.getElementById('check-modal-title').textContent = `Check: ${selectedCamera.name}`;
             document.getElementById('check-modal-subtitle').textContent = selectedCamera.location;
             
-            // Reset form
             document.getElementById('check-working').checked = true;
             document.getElementById('check-lens').checked = true;
             document.getElementById('check-position').checked = true;
@@ -1363,7 +1374,6 @@
                 return;
             }
             
-            // Update camera
             const today = new Date().toISOString().split('T')[0];
             let notes = additionalNotes.trim();
             if (issuesFound && issueDescription.trim()) {
@@ -1373,7 +1383,6 @@
             selectedCamera.lastChecked = today;
             selectedCamera.inspectionNotes = notes || 'Check completed - no issues reported';
             selectedCamera.status = 'checked';
-            selectedCamera.lastCheckedBy = currentUser.name;
             
             closeModal();
             updateStats();
@@ -1387,13 +1396,11 @@
             selectedCamera = null;
         }
 
-        // Rendering functions
         function renderCameras() {
             const today = new Date().toISOString().split('T')[0];
             let filteredCameras = cameras;
             let containerId = 'cameras-grid';
             
-            // Filter cameras based on current page and user role
             switch(currentPage) {
                 case 'dashboard':
                     if (currentUser.role === 'contractor') {
@@ -1419,13 +1426,6 @@
                     });
                     containerId = 'overdue-grid';
                     break;
-                case 'completed':
-                    filteredCameras = cameras.filter(c => {
-                        const isCheckedToday = c.lastChecked === today;
-                        return currentUser.role === 'admin' ? isCheckedToday : (isCheckedToday && c.assignedTo === currentUser.name);
-                    });
-                    containerId = 'completed-grid';
-                    break;
                 case 'all-cameras':
                     filteredCameras = cameras;
                     containerId = 'all-cameras-grid';
@@ -1441,7 +1441,7 @@
         function createCameraCard(camera) {
             const today = new Date().toISOString().split('T')[0];
             const isCheckedToday = camera.lastChecked === today;
-            const canCheck = currentUser.role === 'contractor' && camera.assignedTo === currentUser.name && !isCheckedToday;
+            const canCheck = (currentUser.role === 'admin') || (currentUser.role === 'contractor' && camera.assignedTo === currentUser.name && !isCheckedToday);
             
             return `
                 <div class="camera-card">
@@ -1490,14 +1490,13 @@
                         </button>
                     ` : `
                         <button class="check-button disabled" disabled>
-                            ${isCheckedToday ? 'Already Checked Today' : 'Not Assigned to You'}
+                            ${isCheckedToday ? 'Already Checked Today' : 'Not Available'}
                         </button>
                     `}
                 </div>
             `;
         }
 
-        // Helper functions
         function formatDate(dateString) {
             return new Date(dateString).toLocaleDateString('en-GB');
         }
@@ -1533,9 +1532,7 @@
             }
         }
 
-        // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            // Issues checkbox handler
             document.getElementById('issues-found').addEventListener('change', function() {
                 const issueDescription = document.getElementById('issue-description');
                 if (this.checked) {
@@ -1548,22 +1545,13 @@
                 }
             });
 
-            // Close modal when clicking outside
             document.getElementById('check-modal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeModal();
                 }
             });
-
-            // Responsive sidebar
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    document.getElementById('sidebar').classList.remove('open');
-                }
-            });
         });
 
-        // Make functions globally available
         window.loginAs = loginAs;
         window.logout = logout;
         window.navigateTo = navigateTo;
