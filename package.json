@@ -2,7 +2,7 @@
   "name": "cctv-management-system",
   "version": "1.0.0",
   "description": "CCTV Camera Check Web Application for managing and logging checks on CCTV camera assets",
-  "homepage": "https://yourusername.github.io/cctv-management-system",
+  "homepage": "https://Jack-HD0.github.io/cctv-management-system",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
