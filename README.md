@@ -2,7 +2,7 @@
 
 A modern, responsive web application for managing and logging checks on CCTV camera assets with Freshservice integration.
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://yourusername.github.io/cctv-management-system)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen)](https://Jack-HD0.github.io/cctv-management-system)
 [![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -36,7 +36,7 @@ A modern, responsive web application for managing and logging checks on CCTV cam
 
 ## 🚀 Live Demo
 
-**Try the application now:** [https://yourusername.github.io/cctv-management-system](https://yourusername.github.io/cctv-management-system)
+**Try the application now:** [https://Jack-HD0.github.io/cctv-management-system](https://Jack-HD0.github.io/cctv-management-system)
 
 ### Demo Accounts
 - **Admin Access**: Click "Site Manager" button
@@ -98,7 +98,7 @@ npm run build
 2. **Update package.json**
    ```json
    {
-     "homepage": "https://yourusername.github.io/cctv-management-system"
+     "homepage": "https://Jack-HD0.github.io/cctv-management-system"
    }
    ```
 
@@ -278,8 +278,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 - **Documentation**: Check this README and inline code comments
-- **Issues**: [GitHub Issues](https://github.com/yourusername/cctv-management-system/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/cctv-management-system/discussions)
+- **Issues**: [GitHub Issues](https://github.com/Jack-HD0/cctv-management-system/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Jack-HD0/cctv-management-system/discussions)
 
 ## 🗺️ Roadmap
 
