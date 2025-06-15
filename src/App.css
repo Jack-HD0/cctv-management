@@ -338,6 +338,8 @@ body {
   flex: 1;
   margin-left: 0;
   transition: margin-left 0.3s ease;
+  /* Fixed: Add max-width and centering for large screens */
+  max-width: calc(100vw - 280px);
 }
 
 /* Content Header */
@@ -405,6 +407,9 @@ body {
 /* Content Body */
 .content-body {
   padding: 24px;
+  /* Fixed: Constrain content width and center it */
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 /* Stats Grid */
@@ -412,6 +417,11 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
+  margin-bottom: 32px;
+  /* Fixed: Prevent stats from spreading too wide */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 32px;
 }
 
@@ -495,6 +505,9 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 20px;
+  /* Fixed: Constrain grid width and center it */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .camera-card {
@@ -767,6 +780,9 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   overflow: hidden;
+  /* Fixed: Constrain table width */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .table-header {
@@ -872,6 +888,9 @@ body {
 /* Permissions */
 .permissions-container {
   space-y: 24px;
+  /* Fixed: Constrain permissions width */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .permissions-cards {
@@ -1179,6 +1198,8 @@ body {
 
   .main-content {
     margin-left: 280px;
+    /* Fixed: Better max-width calculation for desktop */
+    max-width: calc(100vw - 280px);
   }
 
   .menu-toggle {
@@ -1190,9 +1211,37 @@ body {
   }
 }
 
+/* Fixed: Better responsive breakpoints for ultra-wide screens */
+@media (min-width: 1400px) {
+  .main-content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 280px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .content-body {
+    max-width: 1600px;
+  }
+  
+  .cameras-grid {
+    max-width: 1600px;
+  }
+  
+  .data-table {
+    max-width: 1600px;
+  }
+}
+
 @media (max-width: 1023px) {
   .user-name {
     display: none;
+  }
+
+  .main-content {
+    max-width: 100vw;
   }
 }
 
